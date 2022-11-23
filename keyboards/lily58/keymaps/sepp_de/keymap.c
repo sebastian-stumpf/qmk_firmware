@@ -1,45 +1,58 @@
 #include QMK_KEYBOARD_H
 
+#include "keymap_german.h"
+
 enum layer_number {
-  _QWERTY = 0,
+  _QWERTZ = 0,
   _LOWER,
   _RAISE,
   _ADJUST,
 };
 
+enum custom_keycodes {
+    GIT_PULL = SAFE_RANGE,
+    GIT_PUSH,
+    GIT_STATUS,
+    GIT_DIFF,
+    GIT_COMMIT,
+    GIT_CHECKOUT
+};
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-/* QWERTY
+/* QWERTZ
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * | ESC  |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  `   |
+ * | ESC  |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  ß   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Tab  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  -   |
+ * | Tab  |   Q  |   W  |   E  |   R  |   T  |                    |   Z  |   U  |   I  |   O  |   P  |  Ü   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |LShift|   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
- * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
- * |LCTRL |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |RShift|
+   |LShift|   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   Ö  |  Ä   |
+ * |------+------+------+------+------+------|   +   |    |   #   |------+------+------+------+------+------|
+ * |LCTRL |   Y  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   -  |RShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LAlt | LGUI |LOWER | /Space  /       \Enter \  |RAISE |BackSP| RGUI |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
+ *
  */
 
- [_QWERTY] = LAYOUT(
-  KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_GRV,
-  KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
-  KC_LSFT,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-  KC_LCTRL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_LBRC,  KC_RBRC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_RSFT,
+ [_QWERTZ] = LAYOUT(
+  KC_ESC,   DE_1,   DE_2,    DE_3,    DE_4,    DE_5,                     DE_6,    DE_7,    DE_8,    DE_9,    DE_0,    DE_SS,
+  KC_TAB,   DE_Q,   DE_W,    DE_E,    DE_R,    DE_T,                     DE_Z,    DE_U,    DE_I,    DE_O,    DE_P,    DE_UDIA,
+  KC_LSFT,  DE_A,   DE_S,    DE_D,    DE_F,    DE_G,                     DE_H,    DE_J,    DE_K,    DE_L,    DE_ODIA, DE_ADIA,
+  KC_LCTRL, DE_Y,   DE_X,    DE_C,    DE_V,    DE_B, DE_PLUS,  DE_HASH,  DE_N,    DE_M,    DE_COMM, DE_DOT,  DE_MINS, KC_RSFT,
                         KC_LALT, KC_LGUI, MO(_LOWER), KC_SPC, KC_ENT, MO(_RAISE), KC_BSPC, KC_RGUI
 ),
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |                    |  F7  |  F8  |  F9  | F10  | F11  | F12  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
+ * |      |      |      |      |      |      |                    |  ^   |   (  |   )  |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   `  |   !  |   @  |   #  |   $  |   %  |-------.    ,-------|   ^  |   &  |   *  |   (  |   )  |   -  |
- * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
- * |  ä   |  ü   |  ö   |   ß  |      |   \  |-------|    |-------|      |   _  |   +  |   {  |   }  |   |  |
+ * |      |      |      |      |      |      |-------.    ,-------|  `   |   [  |   ]  |      |      |      |
+ * |------+------+------+------+------+------|   <   |    |    >  |------+------+------+------+------+------|
+ * |      |      |      |      |      |      |-------|    |-------|      |   {  |   }  |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LAlt | LGUI |LOWER | /Space  /       \Enter \  |RAISE |  Del | RGUI |
  *                   |      |      |      |/       /         \      \ |      |      |      |
@@ -47,20 +60,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = LAYOUT(
   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX, XXXXXXX, XXXXXXX,
-  KC_GRV, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_TILD,
-  RALT(KC_Q), RALT(KC_P), RALT(KC_Y), RALT(KC_Y), _______, KC_BSLS, _______, _______, XXXXXXX, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   DE_CIRC, DE_LPRN, DE_RPRN, XXXXXXX, XXXXXXX, XXXXXXX,
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   DE_GRV,  DE_LBRC, DE_RBRC, XXXXXXX, XXXXXXX, XXXXXXX,
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DE_LABK, DE_RABK, XXXXXXX, DE_LCBR, DE_RCBR, XXXXXXX, XXXXXXX, _______,
                              _______, _______, _______, _______, _______,  _______, KC_DEL, _______
 ),
 /* RAISE
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |Mprev |MplayP|Mnext |Calc  | VolD | VolU |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |  Up  |Insert| Home | PGUP |                    |      |      |      | MSU  |      | MWU  |
+ * |      |      |  Up  |      |      | Home |                    |  End |      |      | MSU  |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      | Left | Down |Right |  End | PGDN |-------.    ,-------|      |      | MSL  | MSD  | MSR  | MWD  |
- * |------+------+------+------+------+------| DMR   |    | DMP   |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------|    |-------| MS1  | MS2  |      |      |      |      |
+ * |      | Left | Down |Right |      |      |-------.    ,-------|      |      | MSL  | MSD  | MSR  |      |
+ * |------+------+------+------+------+------| PGUP  |    | PGDN  |------+------+------+------+------+------|
+ * |      |      |      |      |      |Insert|-------|    |-------| MS1  | MS2  |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LAlt | LGUI |LOWER | /Space  /       \Enter \  |RAISE |BackSP| RGUI |
  *                   |      |      |      |/       /         \      \ |      |      |      |
@@ -68,32 +81,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_RAISE] = LAYOUT(
-  KC_MPRV, KC_MPLY, KC_MNXT, KC_CALC, KC_VOLD, KC_VOLU,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, KC_UP,   KC_INS,  KC_HOME, KC_PGUP,                     XXXXXXX, XXXXXXX, XXXXXXX, KC_MS_U, XXXXXXX, KC_WH_U,
-  XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, KC_END, KC_PGDN,                    XXXXXXX, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  DM_REC1, DM_PLY1,  KC_BTN1, KC_BTN2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                             _______, _______, _______,  _______, _______,  _______, _______, _______
+  KC_MPRV, KC_MPLY, KC_MNXT, KC_CALC,  KC_VOLD, KC_VOLU,                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX,  XXXXXXX, KC_HOME,                    KC_END,  XXXXXXX, XXXXXXX, KC_MS_U, XXXXXXX, XXXXXXX,
+  _______, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, XXXXXXX,                    XXXXXXX, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,
+  _______, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, KC_INS,   KC_PGUP, KC_PGDN, KC_BTN1, KC_BTN2, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+                             _______, _______, _______,  _______, _______, _______, _______, _______
 ),
 /* ADJUST
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
+ * |      |      |      |      | Run  |      |                    |      |      | RowM |      | Pull | Push |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------.    ,-------|      |      |RGB ON| HUE+ | SAT+ | VAL+ |
+ * |      |      |Status| Diff |      |      |-------.    ,-------|      |      |      |      |      |      |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------|    |-------|      |      | MODE | HUE- | SAT- | VAL- |
+ * |      |      |      |Commit|Checko|      |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LAlt | LGUI |LOWER | /Space  /       \Enter \  |RAISE |BackSP| RGUI |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
   [_ADJUST] = LAYOUT(
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                             _______, _______, _______, _______, _______,  _______, _______, _______
+  XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX,    XXXXXXX,      XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX,  XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX,    C(S(KC_F11)), XXXXXXX,                   XXXXXXX, XXXXXXX, LSA(KC_INS), XXXXXXX, GIT_PULL, GIT_PUSH,
+  XXXXXXX, XXXXXXX, GIT_STATUS, GIT_DIFF,   XXXXXXX,      XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX,  XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX,    GIT_COMMIT, GIT_CHECKOUT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX,  XXXXXXX,
+                                       _______, _______, _______, _______, _______,  _______, _______, _______
   )
 };
 
@@ -143,6 +156,27 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef OLED_ENABLE
     set_keylog(keycode, record);
 #endif
+    switch (keycode) {
+        case GIT_PULL:
+            SEND_STRING("git pull -p\n");
+            break;
+        case GIT_PUSH:
+            SEND_STRING("git push\n");
+            break;
+        case GIT_STATUS:
+            SEND_STRING("git status\n");
+            break;
+        case GIT_DIFF:
+            SEND_STRING("git diff\n");
+            break;
+        case GIT_COMMIT:
+            SEND_STRING("git commit -m ''");
+            SEND_STRING(SS_TAP(X_LEFT));
+            break;
+        case GIT_CHECKOUT:
+            SEND_STRING("git checkout ");
+            break;
+    }
     // set_timelog();
   }
   return true;
