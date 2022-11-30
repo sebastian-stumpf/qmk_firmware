@@ -12,12 +12,12 @@ enum custom_keycodes {
     GIT_CHECKOUT
 };
 
-const uint16_t PROGMEM tab_bspc_combo[]  = {KC_TAB, KC_BSPC,  COMBO_END};
-const uint16_t PROGMEM spc_enter_combo[] = {KC_SPC, KC_ENTER, COMBO_END};
+const uint16_t PROGMEM tab_enter_combo[] = {KC_TAB, KC_ENTER, COMBO_END};
+const uint16_t PROGMEM spc_bspc_combo[] =  {KC_SPC, KC_BSPC,  COMBO_END};
 const uint16_t PROGMEM o_p_combo[]       = {DE_O,   DE_P,     COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(tab_bspc_combo, KC_DEL),
-    COMBO(spc_enter_combo, KC_ESC),
+    COMBO(tab_enter_combo, KC_ESC),
+    COMBO(spc_bspc_combo, KC_DEL),
     COMBO(o_p_combo, DE_PLUS)
 };
 
