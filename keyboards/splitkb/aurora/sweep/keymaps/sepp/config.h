@@ -33,4 +33,6 @@
 #    define MOUSEKEY_WHEEL_TIME_TO_MAX 100
 #endif
 
-#define COMBO_COUNT 3
+#define COMBO_COUNT 1
+#define TAPPING_TERM 200
+#define IGNORE_MOD_TAP_INTERRUPT
