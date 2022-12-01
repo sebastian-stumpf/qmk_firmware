@@ -9,7 +9,8 @@ enum custom_keycodes {
     GIT_STATUS,
     GIT_DIFF,
     GIT_COMMIT,
-    GIT_CHECKOUT
+    GIT_CHECKOUT,
+    SELWORD
 };
 
 const uint16_t PROGMEM o_p_combo[] = {DE_O, DE_P, COMBO_END};
@@ -45,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [NAV] = LAYOUT(
             XXXXXXX,      KC_PGUP,       KC_HOME,        KC_UP,           KC_END,           XXXXXXX,        XXXXXXX,      XXXXXXX,      XXXXXXX,        XXXXXXX,
             XXXXXXX,      KC_PGDN,       KC_LEFT,        KC_DOWN,         KC_RIGHT,         XXXXXXX,        KC_LSFT,      KC_LCTL,      KC_LALT,        KC_LGUI,
-            KC_CAPS,      XXXXXXX,       XXXXXXX,        KC_INS,          XXXXXXX,          XXXXXXX,        XXXXXXX,      XXXXXXX,      KC_ALGR,        XXXXXXX,
+            KC_CAPS,      XXXXXXX,       XXXXXXX,        KC_INS,          SELWORD,          XXXXXXX,        XXXXXXX,      XXXXXXX,      KC_ALGR,        XXXXXXX,
                                                          XXXXXXX,         KC_DEL,           XXXXXXX,        XXXXXXX
     ),
     [OTHER] = LAYOUT(
@@ -76,6 +77,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case GIT_CHECKOUT:
             SEND_STRING("git checkout ");
+            break;
+        case SELWORD:
+            SEND_STRING(SS_LCTL(SS_TAP(X_RGHT) SS_LSFT(SS_TAP(X_LEFT))));
             break;
     }
   }
