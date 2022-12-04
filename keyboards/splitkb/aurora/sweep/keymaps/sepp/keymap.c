@@ -23,7 +23,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             DE_Q,         DE_W,          DE_E,           DE_R,            DE_T,             DE_Z,           DE_U,         DE_I,         DE_O,           DE_P,
             LGUI_T(DE_A), LALT_T(DE_S),  LCTL_T(DE_D),   LSFT_T(DE_F),    DE_G,             DE_H,           LSFT_T(DE_J), LCTL_T(DE_K), LALT_T(DE_L),   LGUI_T(DE_HASH),
             DE_Y,         ALGR_T(DE_X),  DE_C,           DE_V,            DE_B,             DE_N,           DE_M,         DE_COMM,      ALGR_T(DE_DOT), LT(OTHER, DE_MINS),
-                                                         LT(NUM,KC_TAB),  LT(FUN,KC_BSPC),  LT(NAV,KC_SPC), LT(SYM, KC_ENTER)
+                                                         LT(NUM,KC_TAB),  LT(FUN,KC_SPC),   LT(NAV,KC_BSPC),LT(SYM, KC_ENTER)
     ),
     [SYM] = LAYOUT(
             XXXXXXX,      XXXXXXX,       XXXXXXX,        XXXXXXX,         DE_GRV,           XXXXXXX,        XXXXXXX,      XXXXXXX,      XXXXXXX,        XXXXXXX,
@@ -41,13 +41,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             XXXXXXX,      XXXXXXX,       XXXXXXX,        XXXXXXX,         XXXXXXX,          KC_F1,          KC_F2,        KC_F3,        KC_F4,          KC_F5,
             KC_LGUI,      KC_LALT,       KC_LCTL,        KC_LSFT,         XXXXXXX,          KC_F6,          KC_F7,        KC_F8,        KC_F9,          KC_F10,
             XXXXXXX,      XXXXXXX,       XXXXXXX,        XXXXXXX,         XXXXXXX,          KC_F11,         KC_F12,       XXXXXXX,      XXXXXXX,        XXXXXXX,
-                                                         XXXXXXX,         XXXXXXX,          XXXXXXX,        XXXXXXX
+                                                         XXXXXXX,         XXXXXXX,          KC_DEL,         XXXXXXX
     ),
     [NAV] = LAYOUT(
             XXXXXXX,      KC_PGUP,       KC_HOME,        KC_UP,           KC_END,           XXXXXXX,        XXXXXXX,      XXXXXXX,      XXXXXXX,        XXXXXXX,
             XXXXXXX,      KC_PGDN,       KC_LEFT,        KC_DOWN,         KC_RIGHT,         XXXXXXX,        KC_LSFT,      KC_LCTL,      KC_LALT,        KC_LGUI,
             KC_CAPS,      XXXXXXX,       XXXXXXX,        KC_INS,          SELWORD,          XXXXXXX,        XXXXXXX,      XXXXXXX,      KC_ALGR,        XXXXXXX,
-                                                         XXXXXXX,         KC_DEL,           XXXXXXX,        XXXXXXX
+                                                         XXXXXXX,         XXXXXXX,          XXXXXXX,         XXXXXXX
     ),
     [OTHER] = LAYOUT(
             KC_MPRV,      KC_MPLY,       KC_MNXT,        KC_VOLD,         KC_VOLU,          XXXXXXX,    GIT_CHECKOUT, GIT_COMMIT,       GIT_PULL,       XXXXXXX,
