@@ -23,13 +23,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             DE_Q,         DE_W,          DE_E,           DE_R,            DE_T,             DE_Z,           DE_U,         DE_I,         DE_O,           DE_P,
             LGUI_T(DE_A), LALT_T(DE_S),  LCTL_T(DE_D),   LSFT_T(DE_F),    DE_G,             DE_H,           LSFT_T(DE_J), LCTL_T(DE_K), LALT_T(DE_L),   LGUI_T(DE_HASH),
             DE_Y,         ALGR_T(DE_X),  DE_C,           DE_V,            DE_B,             DE_N,           DE_M,         DE_COMM,      ALGR_T(DE_DOT), LT(OTHER, DE_MINS),
-                                                         LT(NUM,KC_TAB),  LT(FUN,KC_SPC),   LT(NAV,KC_BSPC),LT(SYM, KC_ENTER)
+                                                         LT(NUM,KC_TAB),  LT(FUN,KC_BSPC),  LT(NAV,KC_SPC), LT(SYM, KC_ENTER)
     ),
     [SYM] = LAYOUT(
             XXXXXXX,      XXXXXXX,       XXXXXXX,        XXXXXXX,         DE_GRV,           XXXXXXX,        XXXXXXX,      XXXXXXX,      XXXXXXX,        XXXXXXX,
             DE_ADIA,      DE_ODIA,       DE_UDIA,        DE_SS,           DE_CIRC,          XXXXXXX,        KC_LSFT,      KC_LCTL,      KC_LALT,        KC_LGUI,
             DE_LABK,      XXXXXXX,       XXXXXXX,        XXXXXXX,         DE_PLUS,          XXXXXXX,        XXXXXXX,      XXXXXXX,      KC_ALGR,        XXXXXXX,
-                                                         XXXXXXX,         XXXXXXX,          XXXXXXX,        XXXXXXX
+                                                         XXXXXXX,         KC_DEL,           XXXXXXX,        XXXXXXX
     ),
     [NUM] = LAYOUT(
             XXXXXXX,      XXXXXXX,       XXXXXXX,        XXXXXXX,         XXXXXXX,          KC_1,           KC_2,         KC_3,         KC_4,           KC_5,
@@ -41,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             XXXXXXX,      XXXXXXX,       XXXXXXX,        XXXXXXX,         XXXXXXX,          KC_F1,          KC_F2,        KC_F3,        KC_F4,          KC_F5,
             KC_LGUI,      KC_LALT,       KC_LCTL,        KC_LSFT,         XXXXXXX,          KC_F6,          KC_F7,        KC_F8,        KC_F9,          KC_F10,
             XXXXXXX,      XXXXXXX,       XXXXXXX,        XXXXXXX,         XXXXXXX,          KC_F11,         KC_F12,       XXXXXXX,      XXXXXXX,        XXXXXXX,
-                                                         XXXXXXX,         XXXXXXX,          KC_DEL,         XXXXXXX
+                                                         XXXXXXX,         XXXXXXX,          XXXXXXX,         XXXXXXX
     ),
     [NAV] = LAYOUT(
             XXXXXXX,      KC_PGUP,       KC_HOME,        KC_UP,           KC_END,           XXXXXXX,        XXXXXXX,      XXXXXXX,      XXXXXXX,        XXXXXXX,
