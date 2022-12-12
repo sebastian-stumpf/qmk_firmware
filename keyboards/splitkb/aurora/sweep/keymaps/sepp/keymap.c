@@ -1,16 +1,11 @@
 #include QMK_KEYBOARD_H
 #include "keymap_german.h"
+#include "sendstring_german.h"
 
 
 enum layers { BASE, SYM, NUM, FUN, NAV, OTHER };
 enum custom_keycodes {
-    GIT_PULL = SAFE_RANGE,
-    GIT_PUSH,
-    GIT_STATUS,
-    GIT_DIFF,
-    GIT_COMMIT,
-    GIT_CHECKOUT,
-    SELWORD
+    SELWORD = SAFE_RANGE
 };
 
 const uint16_t PROGMEM o_p_combo[] = {DE_O, DE_P, COMBO_END};
@@ -47,41 +42,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             XXXXXXX,      KC_PGUP,       KC_HOME,        KC_UP,           KC_END,           XXXXXXX,        XXXXXXX,      XXXXXXX,      XXXXXXX,        XXXXXXX,
             XXXXXXX,      KC_PGDN,       KC_LEFT,        KC_DOWN,         KC_RIGHT,         XXXXXXX,        KC_LSFT,      KC_LCTL,      KC_LALT,        KC_LGUI,
             KC_CAPS,      XXXXXXX,       XXXXXXX,        KC_INS,          SELWORD,          XXXXXXX,        XXXXXXX,      XXXXXXX,      KC_ALGR,        XXXXXXX,
-                                                         XXXXXXX,         XXXXXXX,          XXXXXXX,         XXXXXXX
+                                                         XXXXXXX,         XXXXXXX,          XXXXXXX,        XXXXXXX
     ),
     [OTHER] = LAYOUT(
-            KC_MPRV,      KC_MPLY,       KC_MNXT,        KC_VOLD,         KC_VOLU,          XXXXXXX,    GIT_CHECKOUT, GIT_COMMIT,       GIT_PULL,       XXXXXXX,
-            XXXXXXX,      XXXXXXX,       XXXXXXX,        LSA(KC_INS),     KC_CALC,          XXXXXXX,    GIT_STATUS,   GIT_DIFF,         GIT_PUSH,       XXXXXXX,
-            XXXXXXX,      XXXXXXX,       XXXXXXX,        C(S(KC_F11)),    XXXXXXX,          XXXXXXX,    XXXXXXX,      XXXXXXX,          XXXXXXX,        XXXXXXX,
-                                                         XXXXXXX,         XXXXXXX,          XXXXXXX,    XXXXXXX
+            KC_MPRV,      KC_MPLY,       KC_MNXT,        KC_VOLD,         KC_VOLU,          XXXXXXX,        XXXXXXX,      XXXXXXX,      XXXXXXX,        XXXXXXX,
+            XXXXXXX,      XXXXXXX,       XXXXXXX,        LSA(KC_INS),     KC_CALC,          XXXXXXX,        XXXXXXX,      XXXXXXX,      XXXXXXX,        XXXXXXX,
+            XXXXXXX,      XXXXXXX,       XXXXXXX,        C(S(KC_F11)),    XXXXXXX,          XXXXXXX,        XXXXXXX,      XXXXXXX,      XXXXXXX,        XXXXXXX,
+                                                         XXXXXXX,         XXXXXXX,          XXXXXXX,        XXXXXXX
     )
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (record->event.pressed) {
-    switch (keycode) {
-        case GIT_PULL:
-            SEND_STRING("git pull -p\n");
-            break;
-        case GIT_PUSH:
-            SEND_STRING("git push\n");
-            break;
-        case GIT_STATUS:
-            SEND_STRING("git status\n");
-            break;
-        case GIT_DIFF:
-            SEND_STRING("git diff\n");
-            break;
-        case GIT_COMMIT:
-            SEND_STRING("git commit ");
-            break;
-        case GIT_CHECKOUT:
-            SEND_STRING("git checkout ");
-            break;
-        case SELWORD:
-            SEND_STRING(SS_LCTL(SS_TAP(X_RGHT) SS_LSFT(SS_TAP(X_LEFT))));
-            break;
+    if (record->event.pressed) {
+        switch (keycode) {
+            case SELWORD:
+                SEND_STRING(SS_LCTL(SS_TAP(X_RGHT) SS_LSFT(SS_TAP(X_LEFT))));
+                break;
+        }
     }
-  }
-  return true;
+    return true;
 }
