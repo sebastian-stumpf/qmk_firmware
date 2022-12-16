@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "keymap_german.h"
+#include "layers.h"
 
 #define A_LT LGUI_T(DE_A)
 #define S_LT LALT_T(DE_S)
@@ -15,7 +16,6 @@
 #define INS_MODE LSA(KC_INS)
 #define IJ_RUN C(S(KC_F11))
 
-enum layers { BASE, SYM, NUM, FUN, NAV, OTHER };
 enum custom_keycodes { SELWORD };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -50,9 +50,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    _______, _______, _______,       _______, _______, _______
     ),
     [OTHER] = LAYOUT_split_3x6_3(
-        KC_VOLU, KC_CALC, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT,       KC_BTN1, KC_MS_U, KC_BTN2, XXXXXXX, XXXXXXX,  XXXXXXX,
-        KC_VOLD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, XXXXXXX,  XXXXXXX,
-        KC_MUTE, XXXXXXX, XXXXXXX, XXXXXXX, INS_MODE,IJ_RUN,        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
+        KC_VOLU, XXXXXXX, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT,       XXXXXXX, IJ_RUN,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
+        KC_VOLD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       XXXXXXX, INS_MODE,XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
+        KC_MUTE, XXXXXXX, XXXXXXX, XXXXXXX, KC_CALC, XXXXXXX,       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
                                    _______, _______, _______,       _______, _______, _______
     )
 };
