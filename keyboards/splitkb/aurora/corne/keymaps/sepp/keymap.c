@@ -16,8 +16,6 @@
 #define INS_MODE LSA(KC_INS)
 #define IJ_RUN C(S(KC_F11))
 
-enum custom_keycodes { SELWORD };
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_split_3x6_3(
         KC_ESC,  DE_Q,    DE_W,    DE_E,    DE_R,    DE_T,          DE_Z,    DE_U,    DE_I,    DE_O,    DE_P,     KC_DEL,
@@ -46,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [NAV] = LAYOUT_split_3x6_3(
         _______, XXXXXXX, KC_PGUP, KC_HOME, KC_UP,   KC_END,        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  _______,
         _______, XXXXXXX, KC_PGDN, KC_LEFT, KC_DOWN, KC_RIGHT,      XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,  XXXXXXX,
-        KC_CAPS, KC_INS,  XXXXXXX, XXXXXXX, XXXXXXX, SELWORD,       XXXXXXX, XXXXXXX, XXXXXXX, KC_ALGR, XXXXXXX,  _______,
+        KC_CAPS, KC_INS,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       XXXXXXX, XXXXXXX, XXXXXXX, KC_ALGR, XXXXXXX,  _______,
                                    _______, _______, _______,       _______, _______, _______
     ),
     [OTHER] = LAYOUT_split_3x6_3(
@@ -59,15 +57,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 layer_state_t layer_state_set_user(layer_state_t state) {
    return update_tri_layer_state(state, FUN, NAV, OTHER);
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (record->event.pressed) {
-        switch (keycode) {
-            case SELWORD:
-                SEND_STRING(SS_LCTL(SS_TAP(X_RGHT) SS_LSFT(SS_TAP(X_LEFT))));
-                break;
-        }
-    }
-    return true;
 }
