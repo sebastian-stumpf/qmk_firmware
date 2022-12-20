@@ -24,15 +24,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    MO(NUM), MO(FUN), KC_BSPC,       KC_SPC,  TT(NAV), MO(SYM)
     ),
     [SYM] = LAYOUT_split_3x6_3(
-        _______, DE_SLSH, DE_LPRN, DE_RPRN, DE_UDIA, DE_SS,         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  _______,
+        _______, DE_AT,   DE_LPRN, DE_RPRN, DE_UDIA, DE_SS,         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  _______,
         _______, DE_BSLS, DE_LCBR, DE_RCBR, DE_ADIA, DE_ODIA,       XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,  XXXXXXX,
-        XXXXXXX, DE_QUES, DE_LBRC, DE_RBRC, DE_CIRC, DE_GRV,        XXXXXXX, XXXXXXX, XXXXXXX, KC_ALGR, XXXXXXX,  _______,
+        XXXXXXX, DE_EURO, DE_LBRC, DE_RBRC, DE_CIRC, DE_GRV,        XXXXXXX, XXXXXXX, XXXXXXX, KC_ALGR, XXXXXXX,  _______,
                                    _______, _______, _______,       _______, _______, _______
     ),
     [NUM] = LAYOUT_split_3x6_3(
         _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       KC_1,    KC_2,    KC_3,    KC_4,    KC_5,     _______,
         _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,     XXXXXXX,
-        XXXXXXX, KC_ALGR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       DE_PLUS, DE_MINS, DE_ASTR, DE_SLSH, DE_DOT,   _______,
+        XXXXXXX, KC_ALGR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       DE_TILD, DE_PIPE, DE_QUES, XXXXXXX, XXXXXXX,  _______,
                                    _______, _______, _______,       _______,  _______, _______
     ),
     [FUN] = LAYOUT_split_3x6_3(
