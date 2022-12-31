@@ -21,7 +21,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,  DE_Q,    DE_W,    DE_E,    DE_R,    DE_T,          DE_Z,    DE_U,    DE_I,    DE_O,    DE_P,     KC_DEL,
         KC_TAB,  A_LT,    S_LT,    D_LT,    F_LT,    DE_G,          DE_H,    J_LT,    K_LT,    L_LT,    HASH_LT,  DE_PLUS,
         DE_LABK, Y_LT,    DE_X,    DE_C,    DE_V,    DE_B,          DE_N,    DE_M,    DE_COMM, DE_DOT,  MINS_LT,  KC_ENT,
-                                   MO(NUM), MO(FUN), KC_BSPC,       KC_SPC,  TT(NAV), MO(SYM)
+                                   TT(NUM), MO(FUN), KC_BSPC,       KC_SPC,  TT(NAV), MO(SYM)
     ),
     [SYM] = LAYOUT_split_3x6_3(
         _______, DE_AT,   DE_LPRN, DE_RPRN, DE_UDIA, DE_SS,         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  _______,
