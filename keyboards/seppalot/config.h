@@ -1,4 +1,4 @@
-// Copyright 2022 Sebastian Stumpf (@sebastian-stumpf)
+// Copyright 2023 Sebastian Stumpf (@sebastian-stumpf)
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #pragma once
@@ -19,6 +19,5 @@
 //#define NO_ACTION_TAPPING
 //#define NO_ACTION_ONESHOT
 
-#define UNICODE_SELECTED_MODES UC_LNX
-#define ENCODERS_PAD_A { D1 }
-#define ENCODERS_PAD_B { D0 }
+#define ENCODERS_PAD_A { E6, B1, B2 }
+#define ENCODERS_PAD_B { B4, B3, B6 }
