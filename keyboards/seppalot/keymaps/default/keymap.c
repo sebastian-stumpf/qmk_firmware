@@ -4,7 +4,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(
         KC_MUTE,   KC_MPRV,      KC_MPLY,        KC_MNXT,
         KC_F3,     S(KC_LEFT),   KC_CALC,        S(KC_RIGHT),
-        S(KC_F3),  C(KC_LEFT),   LT(1, LCA(KC_SPACE)), C(KC_RIGHT)
+        S(KC_F3),  C(KC_LEFT),   LT(1, LCA(KC_L)), C(KC_RIGHT)
     ),
     [1] = LAYOUT(
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -22,15 +22,15 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         }
     } else if (index == 1) {
         if (clockwise) {
-            tap_code(KC_PGUP);
+            tap_code16(LCTL(KC_PLUS));
         } else {
-            tap_code(KC_PGDN);
+            tap_code16(LCTL(KC_MINUS));
         }
     } else if (index == 1) {
         if (clockwise) {
-            tap_code(KC_DOWN);
+            tap_code16(ALT_T(KC_RIGHT));
         } else {
-            tap_code(KC_LEFT);
+            tap_code16(ALT_T(KC_LEFT));
         }
     }
     return false;
