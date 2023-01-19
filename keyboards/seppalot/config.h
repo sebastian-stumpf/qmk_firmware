@@ -21,3 +21,4 @@
 
 #define ENCODERS_PAD_A { E6, B1, B2 }
 #define ENCODERS_PAD_B { B4, B3, B6 }
+#define ENCODER_DIRECTION_FLIP

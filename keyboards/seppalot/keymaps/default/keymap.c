@@ -2,35 +2,35 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(
-        KC_MUTE,   KC_MPRV,      KC_MPLY,        KC_MNXT,
-        KC_F3,     S(KC_LEFT),   KC_CALC,        S(KC_RIGHT),
-        S(KC_F3),  C(KC_LEFT),   LT(1, LCA(KC_L)), C(KC_RIGHT)
+        C(KC_W),   KC_MPRV,      KC_MPLY, KC_MNXT,
+        C(KC_0),   S(KC_LEFT),   KC_CALC, S(KC_RIGHT),
+        KC_MUTE,   C(KC_LEFT),   MO(1),   C(KC_RIGHT)
     ),
     [1] = LAYOUT(
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, XXXXXXX, QK_BOOT, XXXXXXX,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+        XXXXXXX, XXXXXXX, KC_TRNS, XXXXXXX
     )
 };
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
         if (clockwise) {
+            tap_code16(A(KC_RIGHT));
+        } else {
+            tap_code16(A(KC_LEFT));
+        }
+    } else if (index == 1) {
+        if (clockwise) {
+            tap_code16(C(KC_PPLS));
+        } else {
+            tap_code16(C(KC_PMNS));
+        }
+    } else if (index == 2) {
+        if (clockwise) {
             tap_code_delay(KC_VOLU, 10);
         } else {
             tap_code_delay(KC_VOLD, 10);
-        }
-    } else if (index == 1) {
-        if (clockwise) {
-            tap_code16(LCTL(KC_PLUS));
-        } else {
-            tap_code16(LCTL(KC_MINUS));
-        }
-    } else if (index == 1) {
-        if (clockwise) {
-            tap_code16(ALT_T(KC_RIGHT));
-        } else {
-            tap_code16(ALT_T(KC_LEFT));
         }
     }
     return false;
