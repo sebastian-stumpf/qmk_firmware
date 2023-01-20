@@ -10,8 +10,6 @@
 #define K_LT LCTL_T(DE_K)
 #define L_LT LALT_T(DE_L)
 #define HASH_LT LGUI_T(DE_HASH)
-#define Y_LT ALGR_T(DE_Y)
-#define MINS_LT ALGR_T(DE_MINS)
 
 #define INS_MODE LSA(KC_INS)
 #define IJ_RUN C(S(KC_F11))
@@ -20,7 +18,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_split_3x6_3(
         KC_ESC,  DE_Q,    DE_W,    DE_E,    DE_R,    DE_T,          DE_Z,    DE_U,    DE_I,    DE_O,    DE_P,     KC_DEL,
         KC_TAB,  A_LT,    S_LT,    D_LT,    F_LT,    DE_G,          DE_H,    J_LT,    K_LT,    L_LT,    HASH_LT,  DE_PLUS,
-        DE_LABK, Y_LT,    DE_X,    DE_C,    DE_V,    DE_B,          DE_N,    DE_M,    DE_COMM, DE_DOT,  MINS_LT,  KC_ENT,
+        DE_LABK, DE_Y,    DE_X,    DE_C,    DE_V,    DE_B,          DE_N,    DE_M,    DE_COMM, DE_DOT,  DE_MINS,  KC_ENT,
                                    TT(NUM), MO(FUN), KC_BSPC,       KC_SPC,  TT(NAV), MO(SYM)
     ),
     [SYM] = LAYOUT_split_3x6_3(
