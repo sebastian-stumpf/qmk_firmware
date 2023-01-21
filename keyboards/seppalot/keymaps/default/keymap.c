@@ -3,8 +3,8 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(
         C(KC_W),   KC_MPRV,      KC_MPLY, KC_MNXT,
-        C(KC_0),   S(KC_LEFT),   KC_CALC, S(KC_RIGHT),
-        KC_MUTE,   C(KC_LEFT),   MO(1),   C(KC_RIGHT)
+        C(KC_0),   C(KC_LEFT),   KC_CALC, C(KC_RIGHT),
+        KC_MUTE,   S(KC_P),      MO(1),   S(KC_N)
     ),
     [1] = LAYOUT(
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
