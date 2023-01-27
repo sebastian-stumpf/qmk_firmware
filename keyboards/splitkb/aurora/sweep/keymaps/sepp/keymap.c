@@ -9,7 +9,7 @@ const uint16_t PROGMEM o_p_combo[] = {DE_O, DE_P, COMBO_END};
 const uint16_t PROGMEM q_w_combo[] = {DE_Q, DE_W, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(o_p_combo, DE_PLUS),
-    COMBO(o_p_combo, KC_ESC)
+    COMBO(q_w_combo, KC_ESC)
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -47,7 +47,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_VOLU,      XXXXXXX,       KC_MPRV,        KC_MPLY,         KC_MNXT,          XXXXXXX,        XXXXXXX,      XXXXXXX,      XXXXXXX,        XXXXXXX,
             KC_VOLD,      XXXXXXX,       XXXXXXX,        XXXXXXX,         XXXXXXX,          XXXXXXX,        XXXXXXX,      XXXXXXX,      XXXXXXX,        XXXXXXX,
             KC_MUTE,      XXXXXXX,       C(S(KC_F11)),   LSA(KC_INS),     XXXXXXX,          XXXXXXX,        XXXXXXX,      XXXXXXX,      XXXXXXX,        XXXXXXX,
-                                                         XXXXXXX,         XXXXXXX,          XXXXXXX,        XXXXXXX
+                                                         TG(NUM),         XXXXXXX,          TG(NAV),        XXXXXXX
     )
 };
-
