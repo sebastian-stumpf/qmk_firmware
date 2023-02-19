@@ -14,6 +14,7 @@ BOOTMAGIC_ENABLE = no
 LTO_ENABLE = yes
 WPM_ENABLE = yes
 CAPS_WORD_ENABLE = yes
+SWAP_HANDS_ENABLE = yes
 
 ifeq ($(OLED_ENABLE),yes)
 	SRC += ./oled.c

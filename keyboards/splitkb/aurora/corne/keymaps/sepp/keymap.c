@@ -14,6 +14,11 @@
 #define INS_MODE LSA(KC_INS)
 #define IJ_RUN C(S(KC_F11))
 
+#define OS_GUI OSM(MOD_LGUI)
+#define OS_ALT OSM(MOD_LALT)
+#define OS_CTL OSM(MOD_LCTL)
+#define OS_SFT OSM(MOD_LSFT)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_split_3x6_3(
         KC_ESC,  DE_Q,    DE_W,    DE_E,    DE_R,    DE_T,          DE_Z,    DE_U,    DE_I,    DE_O,    DE_P,     KC_DEL,
@@ -34,13 +39,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       _______,    _______,    _______,       _______, _______, DE_0
     ),
     [FUN] = LAYOUT_split_3x6_3(
-        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       KC_F7,   KC_F8,   KC_F9,   KC_F12,  XXXXXXX,  _______,
+        SH_TG,   OS_GUI,  OS_ALT,  OS_CTL,  OS_SFT,  XXXXXXX,       KC_F7,   KC_F8,   KC_F9,   KC_F12,  XXXXXXX,  _______,
         _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,       KC_F4,   KC_F5,   KC_F6,   KC_F11,  XXXXXXX,  XXXXXXX,
         XXXXXXX, XXXXXXX, C(DE_X), C(DE_C), C(DE_V), XXXXXXX,       KC_F1,   KC_F2,   KC_F3,   KC_F10,  XXXXXXX,  _______,
                                    _______, _______, _______,       _______,  _______, _______
     ),
     [NAV] = LAYOUT_split_3x6_3(
-        _______, XXXXXXX, KC_PGUP, KC_HOME, KC_UP,   KC_END,        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  _______,
+        _______, XXXXXXX, KC_PGUP, KC_HOME, KC_UP,   KC_END,        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  SH_TG,
         CW_TOGG, XXXXXXX, KC_PGDN, KC_LEFT, KC_DOWN, KC_RIGHT,      XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,  XXXXXXX,
         KC_CAPS, KC_INS,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  _______,
                                    _______, _______, _______,       _______, _______, _______
