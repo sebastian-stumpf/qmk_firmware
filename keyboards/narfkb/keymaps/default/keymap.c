@@ -22,10 +22,10 @@ enum layers { BASE, SYM, NUM, FUN, NAV, OTHER };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT(
-        DE_Q,    DE_W,    DE_E,    DE_R,    DE_T,                                                       DE_Z,    DE_U,    DE_I,    DE_O,    DE_P,
-        A_LT,    S_LT,    D_LT,    F_LT,    DE_G, KC_MUTE,                                     KC_MUTE, DE_H,    J_LT,    K_LT,    L_LT,    HASH_LT,
-        DE_Y,    DE_X,    DE_C,    DE_V,    DE_B, KC_MPRV, KC_MPLY, KC_MNXT, INS_MODE, KC_CALC, IJ_RUN, DE_N,    DE_M,    DE_COMM, DE_DOT,  DE_MINS,
-                                   LT(NUM, KC_ESC), LT(FUN, KC_DEL), KC_BSPC,                  KC_SPC, LT(NAV, KC_TAB), LT(SYM, KC_ENT)
+        DE_Q,    DE_W,    DE_E,    DE_R,    DE_T,                                                        DE_Z,    DE_U,    DE_I,    DE_O,    DE_P,
+        A_LT,    S_LT,    D_LT,    F_LT,    DE_G, KC_MUTE,                                      KC_CALC, DE_H,    J_LT,    K_LT,    L_LT,    HASH_LT,
+        DE_Y,    DE_X,    DE_C,    DE_V,    DE_B, KC_MPRV, KC_MPLY, KC_MNXT, TG(NUM), TO(BASE), TG(NAV), DE_N,    DE_M,    DE_COMM, DE_DOT,  DE_MINS,
+                                   LT(NUM, KC_ESC), LT(FUN, KC_DEL), KC_BSPC,                   KC_SPC, LT(NAV, KC_TAB), LT(SYM, KC_ENT)
     ),
     [SYM] = LAYOUT(
         DE_AT,   DE_LPRN, DE_RPRN, DE_UDIA, DE_SS,                                                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
