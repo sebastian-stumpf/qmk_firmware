@@ -1,7 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "keymap_german.h"
 
-enum layers { BASE, SYM, NUM, FUN, NAV, OTHER };
+enum layers { BASE, SYM, NUM, FUN, NAV };
 
 #define A_LT LGUI_T(DE_A)
 #define S_LT LALT_T(DE_S)
@@ -18,7 +18,6 @@ enum layers { BASE, SYM, NUM, FUN, NAV, OTHER };
 #define OS_SFT OSM(MOD_LSFT)
 
 #define INS_MODE LSA(KC_INS)
-#define IJ_RUN C(S(KC_F11))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -26,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         DE_Q,    DE_W,    DE_E,    DE_R,    DE_T,                   DE_Z,    DE_U,    DE_I,    DE_O,    DE_P,
         A_LT,    S_LT,    D_LT,    F_LT,    DE_G,                   DE_H,    J_LT,    K_LT,    L_LT,    HASH_LT,
         DE_Y,    DE_X,    DE_C,    DE_V,    DE_B,                   DE_N,    DE_M,    DE_COMM, DE_DOT,  DE_MINS,
-                          LT(NUM, KC_DEL), LT(FUN, KC_BSPC), KC_SPC,KC_ENT, LT(NAV, KC_TAB), LT(SYM, KC_ESC)
+        LT(NUM, KC_ESC), LT(FUN, KC_DEL), KC_ENT,                   KC_SPC, LT(NAV, KC_BSPC), LT(SYM, KC_TAB)
     ),
     [SYM] = LAYOUT_split_3x5_3(
         DE_AT,   DE_LPRN, DE_RPRN, DE_UDIA, DE_SS,                  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -50,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [NAV] = LAYOUT_split_3x5_3(
         CW_TOGG, KC_PGUP, KC_HOME, KC_UP,   KC_END,                 XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         KC_CAPS, KC_PGDN, KC_LEFT, KC_DOWN, KC_RIGHT,               XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-        KC_INS,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_INS,  INS_MODE,XXXXXXX, XXXXXXX, XXXXXXX,                XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                           _______, _______,  _______,               _______, _______, _______
     )
 
