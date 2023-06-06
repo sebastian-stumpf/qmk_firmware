@@ -2,7 +2,6 @@ BOOTLOADER = caterina
 MCU = atmega32u4
 
 ENCODER_ENABLE = no
-OLED_ENABLE = yes
 BACKLIGHT_ENABLE = no
 RGB_MATRIX_ENABLE = no
 RGBLIGHT_ENABLE = no
@@ -15,6 +14,10 @@ LTO_ENABLE = yes
 WPM_ENABLE = yes
 CAPS_WORD_ENABLE = yes
 SWAP_HANDS_ENABLE = yes
+
+OLED_ENABLE = no
+POINTING_DEVICE_ENABLE = yes
+POINTING_DEVICE_DRIVER = cirque_pinnacle_i2c
 
 ifeq ($(OLED_ENABLE),yes)
 	SRC += ./oled.c
