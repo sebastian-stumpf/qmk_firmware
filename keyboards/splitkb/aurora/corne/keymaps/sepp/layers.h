@@ -1,3 +1,3 @@
 #pragma once
 
-enum layers { BASE, SYM, NUM, FUN, NAV, OTHER };
+enum layers { BASE, SYM, NUM, FUN, NAV, OTHER, MOUSE };
