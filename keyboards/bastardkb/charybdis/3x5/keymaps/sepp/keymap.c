@@ -23,7 +23,7 @@ enum charybdis_keymap_layers {
 #define J_LT LSFT_T(DE_J)
 #define K_LT LCTL_T(DE_K)
 #define L_LT LALT_T(DE_L)
-#define Y_LT LT(LAYER_POINTER, DE_Y)
+#define V_LT LT(LAYER_POINTER, DE_V)
 #define HASH_LT LGUI_T(DE_HASH)
 
 #define OS_GUI OSM(MOD_LGUI)
@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT(
     DE_Q,    DE_W,    DE_E,    DE_R,    DE_T,                   DE_Z,    DE_U,    DE_I,    DE_O,    DE_P,
     A_LT,    S_LT,    D_LT,    F_LT,    DE_G,                   DE_H,    J_LT,    K_LT,    L_LT,    HASH_LT,
-    Y_LT,    DE_X,    DE_C,    DE_V,    DE_B,                   DE_N,    DE_M,    DE_COMM, DE_DOT,  DE_MINS,
+    DE_Y,    DE_X,    DE_C,    V_LT,    DE_B,                   DE_N,    DE_M,    DE_COMM, DE_DOT,  DE_MINS,
                       ESC_NUM, BSP_FUN, KC_ENT,                 SPC_NAV, TAB_FUN
   ),
   [LAYER_SYMBOLS] = LAYOUT(
@@ -57,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     OS_GUI,  OS_ALT,  OS_CTL,  OS_SFT,  XXXXXXX,                KC_F7,    KC_F8,   KC_F9,   KC_F12,  TO(LAYER_BASE),
     KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                KC_F4,    KC_F5,   KC_F6,   KC_F11,  XXXXXXX,
     XXXXXXX, C(DE_X), C(DE_C), C(DE_V), XXXXXXX,                KC_F1,    KC_F2,   KC_F3,   KC_F10,  TG(LAYER_NUMERAL),
-                      _______, _______, _______,                _______,  _______
+                      _______, KC_DEL, _______,                _______,  _______
   ),
   [LAYER_NAVIGATION] = LAYOUT(
     CW_TOGG, KC_PGUP, KC_HOME, KC_UP,   KC_END,                 XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -66,9 +66,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       _______, _______, _______,                _______, _______
   ),
   [LAYER_POINTER] = LAYOUT(
-    XXXXXXX, XXXXXXX, XXXXXXX, DRG_TOG, XXXXXXX,                DPI_MOD, DPI_RMOD,S_D_MOD, S_D_RMOD,XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, SNP_TOG, XXXXXXX,                XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                DPI_MOD, DPI_RMOD,S_D_MOD, S_D_RMOD,XXXXXXX,
+    XXXXXXX, XXXXXXX, SNP_TOG, XXXXXXX, XXXXXXX,                XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
+    XXXXXXX, XXXXXXX, DRG_TOG, XXXXXXX, XXXXXXX,                XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                       KC_BTN3, KC_BTN1, KC_BTN2,                _______, _______
   ),
 };
