@@ -11,7 +11,7 @@ enum charybdis_keymap_layers {
     LAYER_POINTER,
 };
 
-#define ESC_NUM LT(LAYER_NUMERAL, KC_ESC)
+#define DEL_NUM LT(LAYER_NUMERAL, KC_DEL)
 #define BSP_FUN LT(LAYER_FUNCTION, KC_BSPC)
 #define SPC_NAV LT(LAYER_NAVIGATION, KC_SPC)
 #define TAB_SYM LT(LAYER_SYMBOLS, KC_TAB)
@@ -39,13 +39,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     DE_Q,    DE_W,    DE_E,    DE_R,    DE_T,                   DE_Z,    DE_U,    DE_I,    DE_O,    DE_P,
     A_LT,    S_LT,    D_LT,    F_LT,    DE_G,                   DE_H,    J_LT,    K_LT,    L_LT,    HASH_LT,
     DE_Y,    DE_X,    DE_C,    V_LT,    DE_B,                   DE_N,    DE_M,    DE_COMM, DE_DOT,  DE_MINS,
-                      ESC_NUM, BSP_FUN, KC_ENT,                 SPC_NAV, TAB_SYM
+                      DEL_NUM, BSP_FUN, KC_ENT,                 SPC_NAV, TAB_SYM
   ),
   [LAYER_SYMBOLS] = LAYOUT(
     DE_AT,   DE_LPRN, DE_RPRN, DE_UDIA, DE_SS,                  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     DE_BSLS, DE_LCBR, DE_RCBR, DE_ADIA, DE_ODIA,                XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
     DE_EURO, DE_LBRC, DE_RBRC, DE_CIRC, DE_GRV,                 XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                      _______, KC_DEL,  _______,                _______, _______
+                      KC_ESC,  _______, _______,                _______, _______
   ),
   [LAYER_NUMERAL] = LAYOUT(
     XXXXXXX, XXXXXXX,    C(KC_PGDN), C(KC_PGUP), XXXXXXX,       DE_7,    DE_8,    DE_9,    DE_TILD, XXXXXXX,
