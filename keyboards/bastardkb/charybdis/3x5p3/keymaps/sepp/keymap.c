@@ -94,3 +94,9 @@ bool caps_word_press_user(uint16_t keycode) {
             return false;
     }
 }
+
+// disable led on liatris controller
+void keyboard_pre_init_user(void) {
+  setPinOutput(24);
+  writePinHigh(24);
+}

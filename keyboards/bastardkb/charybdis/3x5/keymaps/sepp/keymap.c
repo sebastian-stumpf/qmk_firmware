@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       KC_ESC,  _______, _______,                _______, _______
   ),
   [LAYER_NUMERAL] = LAYOUT(
-    XXXXXXX, XXXXXXX,    C(KC_PGUP), C(KC_PGDN), XXXXXXX,       DE_7,    DE_8,    DE_9,    DE_TILD, XXXXXXX,
+    KC_ESC,  XXXXXXX,    C(KC_PGUP), C(KC_PGDN), XXXXXXX,       DE_7,    DE_8,    DE_9,    DE_TILD, XXXXXXX,
     KC_LGUI, KC_LALT,    KC_LCTL,    KC_LSFT,    XXXXXXX,       DE_4,    DE_5,    DE_6,    DE_PIPE, DE_LABK,
     XXXXXXX, C(S(DE_X)), C(S(DE_C)), C(S(DE_V)), XXXXXXX,       DE_1,    DE_2,    DE_3,    DE_QUES, DE_PLUS,
                          _______,    _______,    _______,       _______, DE_0
