@@ -8,7 +8,7 @@ enum charybdis_keymap_layers {
     LAYER_NUMERAL,
     LAYER_FUNCTION,
     LAYER_NAVIGATION,
-    LAYER_POINTER,
+    LAYER_ADJUST,
 };
 
 #define DEL_NUM LT(LAYER_NUMERAL, KC_DEL)
@@ -23,8 +23,8 @@ enum charybdis_keymap_layers {
 #define J_LT LSFT_T(DE_J)
 #define K_LT LCTL_T(DE_K)
 #define L_LT LALT_T(DE_L)
-#define V_LT LT(LAYER_POINTER, DE_V)
 #define HASH_LT LGUI_T(DE_HASH)
+#define MINS_LT LT(LAYER_ADJUST, DE_MINS)
 
 #define OS_GUI OSM(MOD_LGUI)
 #define OS_ALT OSM(MOD_LALT)
@@ -34,11 +34,27 @@ enum charybdis_keymap_layers {
 #define INS_MODE LSA(KC_INS)
 #define IJ_RUN C(S(KC_F11))
 
+enum combos {
+    RT_MB2,
+    FG_MB1,
+    VB_MB3
+};
+
+const uint16_t PROGMEM rt_combo[] = {DE_R, DE_T, COMBO_END};
+const uint16_t PROGMEM fg_combo[] = {F_LT, DE_G, COMBO_END};
+const uint16_t PROGMEM vb_combo[] = {DE_V, DE_B, COMBO_END};
+
+combo_t key_combos[] = {
+  [RT_MB2] = COMBO(rt_combo, KC_BTN2),
+  [FG_MB1] = COMBO(fg_combo, KC_BTN1),
+  [VB_MB3] = COMBO(vb_combo, KC_BTN3),
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT(
     DE_Q,    DE_W,    DE_E,    DE_R,    DE_T,                   DE_Z,    DE_U,    DE_I,    DE_O,    DE_P,
     A_LT,    S_LT,    D_LT,    F_LT,    DE_G,                   DE_H,    J_LT,    K_LT,    L_LT,    HASH_LT,
-    DE_Y,    DE_X,    DE_C,    V_LT,    DE_B,                   DE_N,    DE_M,    DE_COMM, DE_DOT,  DE_MINS,
+    DE_Y,    DE_X,    DE_C,    DE_V,    DE_B,                   DE_N,    DE_M,    DE_COMM, DE_DOT,  MINS_LT,
                       DEL_NUM, BSP_FUN, KC_ENT,                 SPC_NAV, TAB_SYM
   ),
   [LAYER_SYMBOLS] = LAYOUT(
@@ -65,11 +81,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_INS,  INS_MODE,XXXXXXX, XXXXXXX, XXXXXXX,                XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                       _______, _______, _______,                _______, _______
   ),
-  [LAYER_POINTER] = LAYOUT(
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                DPI_MOD, DPI_RMOD,S_D_MOD, S_D_RMOD,XXXXXXX,
-    XXXXXXX, XXXXXXX, SNP_TOG, XXXXXXX, XXXXXXX,                XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-    XXXXXXX, XXXXXXX, DRG_TOG, XXXXXXX, XXXXXXX,                XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                      KC_BTN2, KC_BTN3, KC_BTN1,                _______, _______
+  [LAYER_ADJUST] = LAYOUT(
+    XXXXXXX, S_D_RMOD,DPI_RMOD,XXXXXXX, SNP_TOG,                XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, S_D_MOD, DPI_MOD, XXXXXXX, DRG_TOG,                XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                      _______, _______, _______,                _______, _______
   ),
 };
 
