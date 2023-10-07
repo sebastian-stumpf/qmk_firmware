@@ -101,9 +101,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [MOUSE] =  LAYOUT(
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DRAG_SCROLL,                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX, _______, _______,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, C(DE_X), C(DE_C), C(DE_V), XXXXXXX, _______, _______,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                          KC_BTN2, KC_BTN1, KC_BTN3,                        _______, _______, _______
+                          KC_BTN2, KC_BTN3, KC_BTN1,                        _______, _______, _______
     )
 };
 
