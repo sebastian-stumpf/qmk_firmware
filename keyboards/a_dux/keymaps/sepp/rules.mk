@@ -1,0 +1,3 @@
+CONVERT_TO=helios
+EXTRAKEY_ENABLE = yes
+CAPS_WORD_ENABLE = yes

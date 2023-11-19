@@ -57,6 +57,10 @@ bool caps_word_press_user(uint16_t keycode) {
 }
 
 #ifdef OLED_ENABLE
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+    return OLED_ROTATION_180;
+}
+
 bool oled_task_user(void) {
     // Host Keyboard Layer Status
     oled_write_P(PSTR("Test "), false);
