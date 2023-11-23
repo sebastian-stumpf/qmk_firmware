@@ -3,7 +3,7 @@
 #include "keymap_german.h"
 
 
-enum layers { BASE, SYM, NUM, FUN, NAV };
+enum layers { BASE, SYM, NUM, FUN, NAV, ADJUST };
 
 #define A_LT LGUI_T(DE_A)
 #define S_LT LALT_T(DE_S)
@@ -59,8 +59,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_CAPS, KC_PGDN, KC_LEFT, KC_DOWN, KC_RIGHT,     KC_MUTE, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
         KC_INS,  INS_MODE,XXXXXXX, XXXXXXX, XXXXXXX,      KC_VOLD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                           _______, _______, _______,      _______, _______, _______
-    )
+    ),
+    [ADJUST] =  LAYOUT_split_3x5_3(
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                          _______, _______, _______,      _______, _______, _______
+    ),
 };
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+  return update_tri_layer_state(state, FUN, NAV, ADJUST);
+}
 
 bool caps_word_press_user(uint16_t keycode) {
     switch (keycode) {
