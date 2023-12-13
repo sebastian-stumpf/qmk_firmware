@@ -59,3 +59,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           _______, _______, _______,      _______, _______, _______
     )
 };
+
+bool caps_word_press_user(uint16_t keycode) {
+    switch (keycode) {
+        case KC_A ... KC_Z:
+        case KC_MINS:
+        case DE_MINS:
+        case DE_UDIA:
+        case DE_ADIA:
+        case DE_ODIA:
+            add_weak_mods(MOD_BIT(KC_LSFT));
+            return true;
+
+        case KC_1 ... KC_0:
+        case KC_BSPC:
+        case KC_DEL:
+        case KC_UNDS:
+            return true;
+
+        default:
+            return false;
+    }
+};
