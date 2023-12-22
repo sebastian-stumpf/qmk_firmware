@@ -43,15 +43,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           _______, _______, _______,      _______, _______, _______
     ),
     [NUM] =  LAYOUT_split_3x5_3(
-        XXXXXXX, XXXXXXX,    C(KC_PGUP), C(KC_PGDN), XXXXXXX,      DE_7,    DE_8,    DE_9,    DE_TILD, TO(BASE),
-        KC_LGUI, KC_LALT,    KC_LCTL,    KC_LSFT,    XXXXXXX,      DE_4,    DE_5,    DE_6,    DE_PIPE, DE_LABK,
-        XXXXXXX, C(S(DE_X)), C(S(DE_C)), C(S(DE_V)), XXXXXXX,      DE_1,    DE_2,    DE_3,    DE_QUES, DE_PLUS,
+        XXXXXXX, XXXXXXX,    C(KC_PGUP), C(KC_PGDN), XXXXXXX,      DE_TILD, DE_7,    DE_8,    DE_9,    TO(BASE),
+        KC_LGUI, KC_LALT,    KC_LCTL,    KC_LSFT,    XXXXXXX,      DE_PIPE, DE_4,    DE_5,    DE_6,    DE_LABK,
+        XXXXXXX, C(S(DE_X)), C(S(DE_C)), C(S(DE_V)), XXXXXXX,      DE_QUES, DE_1,    DE_2,    DE_3,    DE_PLUS,
                              _______,    _______, _______,         _______,  DE_0, _______
     ),
     [FUN] =  LAYOUT_split_3x5_3(
-        OS_GUI,  OS_ALT,  OS_CTL,  OS_SFT,  XXXXXXX,      KC_F7,    KC_F8,   KC_F9,   KC_F12,  TG(NUM),
-        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,      KC_F4,    KC_F5,   KC_F6,   KC_F11,  XXXXXXX,
-        XXXXXXX, C(DE_X), C(DE_C), C(DE_V), XXXXXXX,      KC_F1,    KC_F2,   KC_F3,   KC_F10,  XXXXXXX,
+        OS_GUI,  OS_ALT,  OS_CTL,  OS_SFT,  XXXXXXX,      TG(NUM),    KC_F7,   KC_F8,   KC_F9,  KC_F12,
+        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,      XXXXXXX,    KC_F4,   KC_F5,   KC_F6,  KC_F11,
+        XXXXXXX, C(DE_X), C(DE_C), C(DE_V), XXXXXXX,      XXXXXXX,    KC_F1,   KC_F2,   KC_F3,  KC_F10,
                           _______, _______, _______,      _______, _______, _______
     ),
     [NAV] =  LAYOUT_split_3x5_3(
