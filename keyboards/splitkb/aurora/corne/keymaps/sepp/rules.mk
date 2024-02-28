@@ -15,9 +15,7 @@ WPM_ENABLE = yes
 CAPS_WORD_ENABLE = yes
 SWAP_HANDS_ENABLE = yes
 
-OLED_ENABLE = no
-POINTING_DEVICE_ENABLE = yes
-POINTING_DEVICE_DRIVER = cirque_pinnacle_i2c
+OLED_ENABLE = yes
 
 ifeq ($(OLED_ENABLE),yes)
 	SRC += ./oled.c

@@ -19,48 +19,6 @@
 #define OS_CTL OSM(MOD_LCTL)
 #define OS_SFT OSM(MOD_LSFT)
 
-#ifdef POINTING_DEVICE_ENABLE
-bool set_scrolling = false;
-
-enum custom_keycodes {
-    DRAG_SCROLL = SAFE_RANGE,
-};
-
-void pointing_device_init_user(void) {
-    set_auto_mouse_layer(MOUSE);
-    set_auto_mouse_enable(true);
-}
-
-#define SCROLL_DIVISOR_H 8.0
-#define SCROLL_DIVISOR_V 8.0
-float scroll_accumulated_h = 0;
-float scroll_accumulated_v = 0;
-
-report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
-    if (set_scrolling) {
-        scroll_accumulated_h += (float)mouse_report.x / SCROLL_DIVISOR_H;
-        scroll_accumulated_v -= (float)mouse_report.y / SCROLL_DIVISOR_V;
-
-        mouse_report.h = (int8_t)scroll_accumulated_h;
-        mouse_report.v = (int8_t)scroll_accumulated_v;
-
-        scroll_accumulated_h -= (int8_t)scroll_accumulated_h;
-        scroll_accumulated_v -= (int8_t)scroll_accumulated_v;
-
-        mouse_report.x = 0;
-        mouse_report.y = 0;
-    }
-    return mouse_report;
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (keycode == DRAG_SCROLL && record->event.pressed) {
-        set_scrolling = !set_scrolling;
-    }
-    return true;
-}
-#endif
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_split_3x6_3(
         KC_ESC,  DE_Q,    DE_W,    DE_E,    DE_R,    DE_T,          DE_Z,    DE_U,    DE_I,    DE_O,    DE_P,     KC_DEL,
@@ -97,21 +55,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_VOLD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       XXXXXXX, INS_MODE,XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
         KC_MUTE, XXXXXXX, XXXXXXX, XXXXXXX, KC_CALC, XXXXXXX,       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
                                    _______, _______, _______,       _______, _______, _______
-    ),
-    [MOUSE] = LAYOUT_split_3x6_3(
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DRAG_SCROLL,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
-                                   KC_BTN3, KC_BTN1, KC_BTN2,       _______, _______, _______
     )
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-#ifdef POINTING_DEVICE_ENABLE
-    if (get_highest_layer(state) != AUTO_MOUSE_DEFAULT_LAYER) {
-        set_scrolling = false;
-    }
-#endif
     return update_tri_layer_state(state, FUN, NAV, OTHER);
 }
 
