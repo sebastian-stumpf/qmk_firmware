@@ -1,0 +1,23 @@
+{
+    "manufacturer": "ssbb",
+    "keyboard_name": "Tako",
+    "maintainer": "ssbb",
+    "url": "https://github.com/ssbb/tako",
+    "usb": {
+        "device_version": "0.0.1",
+        "vid": "0xECBB",
+        "shared_endpoint": {
+            "keyboard": true
+        }
+    },
+    "build": {
+        "lto": true
+    },
+    "split": {
+        "enabled": true
+    },
+    "layout_aliases": {
+        "LAYOUT": "LAYOUT_split_3x5_2"
+    },
+    "community_layouts": ["split_3x5_2"]
+}

@@ -1,0 +1,4 @@
+CONVERT_TO=helios
+CAPS_WORD_ENABLE = yes
+COMBO_ENABLE = yes
+OLED_ENABLE = no
