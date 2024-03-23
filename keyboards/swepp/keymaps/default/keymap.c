@@ -61,6 +61,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
+const uint16_t PROGMEM escape_combo[] = {DE_Q, DE_W, COMBO_END};
+const uint16_t PROGMEM enter_combo[] =  {DE_P, DE_O, COMBO_END};
+
+combo_t key_combos[] = {
+    COMBO(escape_combo, KC_ESC),
+    COMBO(enter_combo, KC_ENT),
+};
+
 bool caps_word_press_user(uint16_t keycode) {
     switch (keycode) {
         case KC_A ... KC_Z:
